@@ -1,0 +1,13 @@
+---
+- name: locale | check current locale settings
+  command: /usr/bin/locale
+  register: locale_output
+  changed_when: locale_output.stderr != ''
+
+- name: locale | generate UTF-8 locale
+  command: /usr/sbin/locale-gen en_US.UTF-8
+  when: locale_output.stderr != ''
+
+- name: locale | adjust current locale
+  command: /usr/sbin/update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+  when: locale_output.stderr != ''

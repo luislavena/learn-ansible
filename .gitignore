@@ -1,1 +1,3 @@
 /.vagrant
+/public_keys
+credentials/

@@ -1,0 +1,41 @@
+# file: group_vars/all.yml
+#
+# DO NOT MODIFY THIS FILE
+#
+# Create inventory-specific ones instead:
+#
+# Example
+#   inventories/inventory_name/vars.yml
+---
+
+# timezone: adjust server timezone
+#
+# Examples:
+#   America/New_York  # for Eastern Time (EST/EDT)
+#   Etc/UTC           # self-explained
+
+timezone: Etc/UTC
+
+# public_keys: allow adding SSH keys to specific accounts
+#
+# Add here, under the account you want the key associated with, the filename
+# of the file you placed inside 'public_keys' directory.
+#
+# Do not forget to place a copy of the public keys in the 'public_keys'
+# directory.
+#
+# Examples
+#  manage:
+#    - user1-key
+#    - user2-key
+
+public_keys:
+  manage:
+
+# INTERNAL: The following variables are used by the playbook and roles
+# internally.
+
+# roots: the relative-paths to the top-directory and the inventory-specific
+# one from within the roles.
+playbook_root: "../../.."
+inventory_root: "{{ playbook_root }}/inventories/{{ inventory_name }}"

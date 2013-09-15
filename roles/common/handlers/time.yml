@@ -1,0 +1,6 @@
+---
+- name: time | apply timezone change
+  command: dpkg-reconfigure --frontend noninteractive tzdata
+
+- name: time | restart cron
+  service: name=cron state=restarted

@@ -1,0 +1,11 @@
+# file: playbook.yml
+---
+- hosts: all
+  sudo: true
+
+  # load inventory-specific variables
+  vars_files:
+    - "inventories/{{ inventory_name }}/vars.yml"
+
+  roles:
+    - common

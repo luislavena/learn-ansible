@@ -1,0 +1,17 @@
+---
+- name: apt | update cache
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: apt | upgrade installed packages (safe)
+  apt: upgrade=safe
+
+- name: apt | install latest common packages
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - curl
+    - htop
+    - iftop
+    - iotop
+    - sudo
+    - vim
+    - wget

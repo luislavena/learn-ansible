@@ -1,0 +1,13 @@
+# file: inventory/hosts
+
+[all:vars]
+inventory_name = aio-stage-vagrant
+
+[web]
+192.168.33.100
+
+[db]
+192.168.33.100
+
+[util]
+192.168.33.100

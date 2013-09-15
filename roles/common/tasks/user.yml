@@ -1,0 +1,14 @@
+---
+- name: user | create '{{ user }}'
+  user: name={{ user }} state=present shell=/bin/bash password={{ item }}
+  with_password: "{{ inventory_root }}/credentials/{{ user }} encrypt=sha512_crypt"
+
+- name: user | grant sudo privileges to '{{ user }}'
+  user: name={{ user }} groups=sudo append=yes
+  when: sudoer is defined and sudoer == 'yes'
+
+- name: user | import authorized keys for '{{ user }}'
+  authorized_key: user={{ user }} state=present
+                  key="{{ lookup('file', playbook_root + '/public_keys/' + item) }}"
+  with_items: 'public_keys.{{ user }}'
+  when: public_keys.{{ user }} != None
