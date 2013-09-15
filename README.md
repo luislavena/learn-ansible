@@ -1,7 +1,13 @@
-# learn ansible
+# learning ansible
 
 This is my attempt to understand concepts and structure of [Ansible](https://github.com/ansible/ansible)
-and at the same time be able to create something useful and maintainable.
+and at the same time be able to create something useful and maintainable, at
+least for me.
+
+The idea is be able to provision individual web servers to run my Ruby
+applications or cluster with specific roles.
+
+Keep reading if you're interested in the details.
 
 ## Requirements
 
